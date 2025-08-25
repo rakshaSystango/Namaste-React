@@ -1,0 +1,143 @@
+*,
+::backdrop,
+:after,
+:before {
+  border: 0 solid;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Roboto", sans-serif;
+  background: #f9f9fb; /* subtle background */
+  color: #333;
+  line-height: 1.5;
+}
+
+/* header style */
+.header {
+  background-color: #fff;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  padding: 15px 20px;
+  z-index: 1050;
+}
+.nav-items {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-items a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+.nav-items a:hover{
+    color: #000;
+}
+
+.body-container{
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Individual Card */
+.card {
+  flex: 1 1 calc(25% - 20px); /* 4 cards in a row */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 280px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.food-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Text Styles */
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 12px;
+  color: #222;
+}
+
+.card p {
+  margin: 6px 12px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Rating Badge */
+.card .rating {
+  display: inline-block;
+  background: #4caf50;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 6px 12px;
+}
+
+/* Footer style */
+.footer {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+.footer strong {
+  color: #ff5722; /* highlight brand color */
+}
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 100%;
+  }
+   .footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}

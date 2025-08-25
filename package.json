@@ -1,0 +1,33 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This is Namaste React App",
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakshaSystango/Namaste-React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Raksha Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rakshaSystango/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/rakshaSystango/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "browsersList":[
+    "last 2 version"
+  ]
+}
