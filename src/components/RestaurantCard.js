@@ -1,4 +1,5 @@
 import React from "react";
+import { CON_URL } from "../utils/constants";
 
 const RestaurantCard = ({
   name,
@@ -11,7 +12,7 @@ const RestaurantCard = ({
   return (
     <div className="card">
       <img
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${image}`}
+        src={CON_URL+ image}
         alt={name}
         className="food-img"
       />

@@ -1,7 +1,4 @@
-import React from "react";
-import RestaurantCard from "./RestaurantCard";
-
-export const resData = [
+export const resList = [
   {
     id: "581971",
     name: "Pizza Hut",
@@ -9,7 +6,7 @@ export const resData = [
       "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/41d2ced1-7522-4b0f-86bf-f778a193542a_581971.JPG",
     cuisines: ["Pizzas"],
     costForTwo: "₹350 for two",
-    rating: 4.2,
+    rating: 3.5,
     deliveryTime: "35-40 mins",
     locality: "Airport Road",
     area: "Sarafa",
@@ -98,7 +95,7 @@ export const resData = [
       "RX_THUMBNAIL/IMAGES/VENDOR/2024/5/10/213a964e-8671-4d10-aed6-4d5f0b4e2441_370626.JPG",
     cuisines: ["Fried Chicken", "Burgers", "Fast Food"],
     costForTwo: "₹400 for two",
-    rating: 4.0,
+    rating: 3.8,
     deliveryTime: "25-35 mins",
     locality: "Sapna Sangeeta Road",
     area: "Central Mall",
@@ -120,18 +117,30 @@ export const resData = [
     offer: "FREE Coke on orders above ₹299",
     link: "https://www.swiggy.com/city/indore/subway-geeta-bhawan-new-palasia-rest852963",
   },
+  {
+    id: "963258",
+    name: "Cafe Coffee Day",
+    image: "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/4/2ccbba87-4bdf-401b-85f7-80ea34b2183e_587560.JPG",
+    cuisines: ["Cafe", "Beverages", "Desserts"],
+    costForTwo: "₹400 for two",
+    rating: 4.3,
+    deliveryTime: "15-20 mins",
+    locality: "Race Course Road",
+    area: "TI Mall",
+    offer: "Buy 2 Get 1 Free",
+    link: "https://www.swiggy.com/city/indore/cafe-coffee-day-race-course-road-ti-mall-rest963258",
+  },
+  {
+    id: "147258",
+    name: "Havmor Ice Cream",
+    image: "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/24/40a63f8d-8fe1-4960-b29c-d1c8ae5fc375_1083750.JPG",
+    cuisines: ["Ice Cream", "Desserts"],
+    costForTwo: "₹250 for two",
+    rating:3.2,
+    deliveryTime: "20-25 mins",
+    locality: "Annapurna Road",
+    area: "South Tukoganj",
+    offer: "30% OFF UPTO ₹75",
+    link: "https://www.swiggy.com/city/indore/havmor-ice-cream-annapurna-road-rest147258",
+  }
 ];
-
-const Body = () => {
-  return (
-    <main className="body-container">
-      <div className="card-container">
-        {resData.map((rest) => (
-          <RestaurantCard key={rest.id} {...rest} />
-        ))}
-      </div>
-    </main>
-  );
-};
-
-export default Body;
