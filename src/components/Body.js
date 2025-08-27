@@ -1,90 +1,88 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { resList } from "../utils/mocData";
+import { ShimmerSkeleton } from "./ShimmerSkeleton";
 
 const Body = () => {
   // State variable - super powerfull variables
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  // Normal js variables
-  // let listOfRestaurants = [
-  //   {
-  //     id: "581971",
-  //     name: "Pizza Hut",
-  //     image:
-  //       "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/41d2ced1-7522-4b0f-86bf-f778a193542a_581971.JPG",
-  //     cuisines: ["Pizzas"],
-  //     costForTwo: "₹350 for two",
-  //     rating: 3.2,
-  //     deliveryTime: "35-40 mins",
-  //     locality: "Airport Road",
-  //     area: "Sarafa",
-  //     offer: "ITEMS AT ₹99",
-  //     link: "https://www.swiggy.com/city/indore/pizza-hut-airport-road-sarafa-rest581971",
-  //   },
-  //   {
-  //     id: "882432",
-  //     name: "Theobroma",
-  //     image:
-  //       "RX_THUMBNAIL/IMAGES/VENDOR/2025/8/14/8745ebcd-81da-45e0-a818-29f87ab20ac9_882432.JPG",
-  //     cuisines: ["Bakery", "Desserts", "Beverages"],
-  //     costForTwo: "₹300 for two",
-  //     rating: 4.5,
-  //     deliveryTime: "25-30 mins",
-  //     locality: "Near Janjeerwala Square",
-  //     area: "Darshan Mall, Race Course Rd",
-  //     offer: "ITEMS AT ₹290",
-  //     link: "https://www.swiggy.com/city/indore/theobroma-near-janjeerwala-square-darshan-mall-race-course-rd-rest882432",
-  //   },
-  //   {
-  //     id: "362169",
-  //     name: "Baskin Robbins - Ice Cream Desserts",
-  //     image:
-  //       "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/24/cf02723a-53a2-4461-8391-4b17473c7718_362169.JPG",
-  //     cuisines: ["Desserts", "Ice Cream"],
-  //     costForTwo: "₹250 for two",
-  //     rating: 4.5,
-  //     deliveryTime: "25-30 mins",
-  //     locality: "44th Scheme",
-  //     area: "Khatiwala",
-  //     offer: "50% OFF UPTO ₹90",
-  //     link: "https://www.swiggy.com/city/indore/baskin-robbins-ice-cream-desserts-44th-scheme-khatiwala-rest362169",
-  //   },
-  //   {
-  //     id: "123456",
-  //     name: "Domino's Pizza",
-  //     image:
-  //       "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/17/ea6ac179-6959-4f3a-9c66-424c2ec79411_698741.JPG",
-  //     cuisines: ["Pizzas", "Italian", "Fast Food"],
-  //     costForTwo: "₹400 for two",
-  //     rating: 4.3,
-  //     deliveryTime: "20-25 mins",
-  //     locality: "MG Road",
-  //     area: "Treasure Island Mall",
-  //     offer: "50% OFF UPTO ₹100",
-  //     link: "https://www.swiggy.com/city/indore/dominos-pizza-mg-road-rest123456",
-  //   },
-  // ];
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  return (
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    /* Optional chaining */
+    setListOfRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  };
+
+  // console.log(listOfRestaurants);
+
+  // Conditional Rendring - skeleton
+  return listOfRestaurants.length === 0 ? (
+    <main className="body-container">
+      <div className="card-container">
+        {[...Array(8)].map((_, index) => (
+          <ShimmerSkeleton key={index} />
+        ))}
+      </div>
+    </main>
+  ) : (
     <main className="body-container">
       <div className="filter">
+        <div className="search-container">
+          <input
+            type="search"
+            placeholder="Search"
+            className="Search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          {/* filter the restaurant card and update the ui */}
+          <button
+            className="btn cst-btn"
+            onClick={() => {
+              console.log(searchText);
+              const filteredRRestaurant = listOfRestaurants.filter((rest) =>
+                rest.info?.name?.toLowerCase().includes(searchText.toLowerCase())
+              );
+              console.log("Filtered:", filteredRRestaurant);
+              setFilteredRestaurants(filteredRRestaurant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-           const filteredList = listOfRestaurants.filter(
+            const filteredList = listOfRestaurants.filter(
               (res) => res.rating > 4
             );
-           setListOfRestaurants(filteredList);
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="card-container">
-        {listOfRestaurants.map((rest) => (
-          <RestaurantCard key={rest.id} {...rest} />
-        ))}
+        {filteredRestaurants
+          ?.filter((rest) => rest?.info) // only keep restaurants with info
+          .map((rest) => (
+            <RestaurantCard key={rest.info.id} {...rest.info} />
+          ))}
       </div>
     </main>
   );
