@@ -35,3 +35,7 @@ import {Compoent} from "path"
 (Normal JS functions)
 - useState() - superPawerfull state variables in react
 - useEffect()
+
+# 2 types of routing in web app
+- Client site routing
+- Server site routing

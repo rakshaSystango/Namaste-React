@@ -144,3 +144,127 @@ export const resList = [
     link: "https://www.swiggy.com/city/indore/havmor-ice-cream-annapurna-road-rest147258",
   }
 ];
+
+// Local mock menu data to replace the real Swiggy API for learning purposes.
+// The shape matches the properties used in `RestaurantMenu.js`.
+
+export const mockMenuData = {
+  data: {
+    cards: [
+      {}, // cards[0] (unused)
+      {}, // cards[1] (unused)
+      {
+        card: {
+          card: {
+            info: {
+              name: "Mock Restaurant",
+              avgRatingString: "4.5",
+              totalRatingsString: "1K+ ratings",
+              costForTwoMessage: "₹300 for two",
+              cuisines: ["Indian", "Chinese"],
+              areaName: "Mock Area",
+              sla: {
+                slaString: "30 mins",
+              },
+            },
+          },
+        },
+      },
+      {}, // cards[3] (unused)
+      {
+        groupedCard: {
+          cardGroupMap: {
+            REGULAR: {
+              cards: [
+                {}, // [0]
+                {}, // [1]
+                {
+                  card: {
+                    card: {
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "1",
+                              name: "Mock Paneer Tikka",
+                              defaultPrice: 25000,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.3",
+                                },
+                              },
+                              description:
+                                "Delicious paneer tikka made with spices.",
+                              // Use a full image URL so it works in the browser
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/1/4/a4514f48-847f-4b4d-9298-1dcb5cabd5c8_8a011614-5786-41d3-9fd5-a07f806e142e.jpg",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "2",
+                              name: "Mock Veg Biryani",
+                              price: 22000,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.1",
+                                },
+                              },
+                              description:
+                                "Flavorful veg biryani with fragrant rice.",
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/d6dd74aaee5b6255707f423c66f0ddb3",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "3",
+                              name: "Mock Butter Naan",
+                              defaultPrice: 8000,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.6",
+                                },
+                              },
+                              description: "Soft buttery naan fresh from tandoor.",
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "4",
+                              name: "Mock Gulab Jamun",
+                              price: 12000,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.8",
+                                },
+                              },
+                              description:
+                                "Warm and soft gulab jamuns soaked in sugar syrup.",
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/4/21/5e17e1b0-4ed7-4550-9281-ab328ec00de3_0c709392-2a7b-4775-aa8b-4ca8fa93ba91.jpg",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    ],
+  },
+};
+
+
