@@ -1,42 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { resList } from "../utils/mocData";
 import { ShimmerSkeleton } from "./ShimmerSkeleton";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useListOfRestaurant from "../utils/useListOfRestaurant";
 
 const Body = () => {
-  // State variable - super powerfull variables
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  const [pageTitle, setPageTitle] = useState("");
-
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9280709&lng=75.7900883&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-    );
-    const json = await data.json();
-    console.log(json);
-    /* Optional chaining */
-    setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants,
-    );
-    setPageTitle(json?.data?.cards[2]?.card?.card?.title);
-  };
-
+  const {
+    listOfRestaurants,
+    setListOfRestaurants,
+    filteredRestaurants,
+    setFilteredRestaurants,
+    pageTitle,
+  } = useListOfRestaurant();
   // console.log(listOfRestaurants);
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>🔴 You are offline! Please check your internet connection.</h1>;
 
   // Conditional Rendring - skeleton
   return listOfRestaurants.length === 0 ? (
