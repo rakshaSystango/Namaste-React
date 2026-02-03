@@ -99,20 +99,15 @@
 
 // export default RestaurantMenu;
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ShimmerSkeleton } from "./ShimmerSkeleton";
 import { useParams } from "react-router-dom";
-import { mockMenuData } from "../utils/mocData";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    // For this learning project, just use local mock data
-    console.log("Route restaurant id (mocked):", resId);
-    setResInfo(mockMenuData.data);
-  }, [resId]);
+  const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <ShimmerSkeleton />;
 
@@ -126,8 +121,7 @@ const RestaurantMenu = () => {
   } = resInfo?.cards[2]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
     <div>
