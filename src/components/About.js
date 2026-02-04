@@ -13,9 +13,14 @@ class About extends React.Component {
   }
   render() {
     return (
-      <>
+      <div className="space-y-5">
         {/* {console.log("parent render")} */}
-        <h1>About</h1>
+        <div className="rounded-2xl border border-border bg-surface p-5 shadow-sm">
+          <h1 className="text-xl font-bold tracking-tight text-text">About</h1>
+          <p className="mt-2 text-sm text-muted">
+            A small learning project built while practicing React fundamentals.
+          </p>
+        </div>
         <User
           name="Raksha Jain (function)"
           location="India"
@@ -27,7 +32,7 @@ class About extends React.Component {
           location="India"
           contact="raksha.jain@example.com"
         />
-      </>
+      </div>
     );
   }
 }

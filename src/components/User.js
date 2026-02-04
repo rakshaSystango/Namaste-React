@@ -9,12 +9,18 @@ const User = ({ name, location, contact }) => {
   }, []);
   
   return (
-    <div className="user-card">
-      <h1>Count : {count}</h1>
-      <h1>Count2 : {count2}</h1>
-      <p>Name: {name}</p>
-      <p>Location: {location}</p>
-      <p>Contact: {contact}</p>
+    <div className="mt-5 rounded-2xl border border-border bg-surface p-5 text-sm text-muted shadow-sm">
+      <h1 className="text-base font-semibold text-text">Count : {count}</h1>
+      <h1 className="text-base font-semibold text-text">Count2 : {count2}</h1>
+      <p className="mt-2">
+        <span className="font-semibold text-text">Name:</span> {name}
+      </p>
+      <p>
+        <span className="font-semibold text-text">Location:</span> {location}
+      </p>
+      <p>
+        <span className="font-semibold text-text">Contact:</span> {contact}
+      </p>
     </div>
   );
 };

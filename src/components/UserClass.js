@@ -45,7 +45,7 @@ class UserClass extends React.Component {
     //   console.log("child render");
     
     return (
-      <div className="user-card">
+      <div className="mt-5 rounded-2xl border border-border bg-surface p-5 text-sm text-muted shadow-sm">
         {/* <h1>Count : {count}</h1> */}
         {/* <button
           type="button"
@@ -57,8 +57,12 @@ class UserClass extends React.Component {
         >
           Count Increase
         </button> */}
-        <p>Name: {name}</p>
-        <p>Location: {location}</p>
+        <p>
+          <span className="font-semibold text-text">Name:</span> {name}
+        </p>
+        <p>
+          <span className="font-semibold text-text">Location:</span> {location}
+        </p>
         {/* <p>Contact: {contact}</p> */}
       </div>
     );
