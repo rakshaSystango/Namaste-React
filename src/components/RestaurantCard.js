@@ -7,7 +7,7 @@ const RestaurantCard = ({
   cuisines,
   costForTwo,
   avgRating,
-  sla
+  sla,
 }) => {
   return (
     <article className="group h-full overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
@@ -37,6 +37,20 @@ const RestaurantCard = ({
       </div>
     </article>
   );
+};
+
+// Higher order component
+// input - RestaurantCard => RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <>
+        <label>Promoted</label>
+        <RestaurantCard {...props} />
+      </>
+    );
+  };
 };
 
 export default RestaurantCard;

@@ -151,8 +151,8 @@ export const resList = [
 export const mockMenuData = {
   data: {
     cards: [
-      {}, // cards[0] (unused)
-      {}, // cards[1] (unused)
+      {},
+      {},
       {
         card: {
           card: {
@@ -163,94 +163,183 @@ export const mockMenuData = {
               costForTwoMessage: "₹300 for two",
               cuisines: ["Indian", "Chinese"],
               areaName: "Mock Area",
-              sla: {
-                slaString: "30 mins",
-              },
+              sla: { slaString: "30 mins" },
             },
           },
         },
       },
-      {}, // cards[3] (unused)
+      {},
       {
         groupedCard: {
           cardGroupMap: {
             REGULAR: {
               cards: [
-                {}, // [0]
-                {}, // [1]
+                {},
+
+                // ⭐ RECOMMENDED
                 {
                   card: {
                     card: {
+                      title: "Recommended",
                       itemCards: [
                         {
                           card: {
                             info: {
-                              id: "1",
-                              name: "Mock Paneer Tikka",
-                              defaultPrice: 25000,
-                              ratings: {
-                                aggregatedRating: {
-                                  rating: "4.3",
-                                },
-                              },
-                              description:
-                                "Delicious paneer tikka made with spices.",
-                              // Use a full image URL so it works in the browser
-                              imageId:
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/1/4/a4514f48-847f-4b4d-9298-1dcb5cabd5c8_8a011614-5786-41d3-9fd5-a07f806e142e.jpg",
-                            },
-                          },
-                        },
-                        {
-                          card: {
-                            info: {
-                              id: "2",
-                              name: "Mock Veg Biryani",
-                              price: 22000,
-                              ratings: {
-                                aggregatedRating: {
-                                  rating: "4.1",
-                                },
-                              },
-                              description:
-                                "Flavorful veg biryani with fragrant rice.",
+                              id: "101",
+                              name: "Paneer Butter Masala",
+                              price: 26000,
                               imageId:
                                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/d6dd74aaee5b6255707f423c66f0ddb3",
-                            },
-                          },
-                        },
-                        {
-                          card: {
-                            info: {
-                              id: "3",
-                              name: "Mock Butter Naan",
-                              defaultPrice: 8000,
                               ratings: {
-                                aggregatedRating: {
-                                  rating: "4.6",
-                                },
-                              },
-                              description: "Soft buttery naan fresh from tandoor.",
-                              imageId:
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
-                            },
-                          },
-                        },
-                        {
-                          card: {
-                            info: {
-                              id: "4",
-                              name: "Mock Gulab Jamun",
-                              price: 12000,
-                              ratings: {
-                                aggregatedRating: {
-                                  rating: "4.8",
-                                },
+                                aggregatedRating: { rating: "4.5" },
                               },
                               description:
-                                "Warm and soft gulab jamuns soaked in sugar syrup.",
+                                "Rich and creamy paneer butter masala.",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "102",
+                              name: "Veg Biryani",
+                              price: 22000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
+                              ratings: {
+                                aggregatedRating: { rating: "4.2" },
+                              },
+                              description:
+                                "Aromatic rice cooked with vegetables.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🥗 STARTERS
+                {
+                  card: {
+                    card: {
+                      title: "Starters",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "201",
+                              name: "Paneer Tikka",
+                              defaultPrice: 25000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/1/4/a4514f48-847f-4b4d-9298-1dcb5cabd5c8_8a011614-5786-41d3-9fd5-a07f806e142e.jpg",
+                              ratings: {
+                                aggregatedRating: { rating: "4.3" },
+                              },
+                              description:
+                                "Smoky paneer cubes grilled to perfection.",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "202",
+                              name: "Crispy Corn",
+                              price: 18000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/5e17e1b0-4ed7-4550-9281-ab328ec00de3",
+                              ratings: {
+                                aggregatedRating: { rating: "4.1" },
+                              },
+                              description:
+                                "Golden fried corn tossed with spices.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🍛 MAIN COURSE
+                {
+                  card: {
+                    card: {
+                      title: "Main Course",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "301",
+                              name: "Dal Makhani",
+                              price: 20000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/0c709392-2a7b-4775-aa8b-4ca8fa93ba91",
+                              ratings: {
+                                aggregatedRating: { rating: "4.6" },
+                              },
+                              description:
+                                "Slow cooked black lentils with butter.",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "302",
+                              name: "Butter Naan",
+                              defaultPrice: 8000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
+                              ratings: {
+                                aggregatedRating: { rating: "4.7" },
+                              },
+                              description:
+                                "Soft naan brushed with butter.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🍰 DESSERTS
+                {
+                  card: {
+                    card: {
+                      title: "Desserts",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "401",
+                              name: "Gulab Jamun",
+                              price: 12000,
                               imageId:
                                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/4/21/5e17e1b0-4ed7-4550-9281-ab328ec00de3_0c709392-2a7b-4775-aa8b-4ca8fa93ba91.jpg",
+                              ratings: {
+                                aggregatedRating: { rating: "4.8" },
+                              },
+                              description:
+                                "Soft milk-solid balls soaked in syrup.",
+                            },
+                          },
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "402",
+                              name: "Rasgulla",
+                              price: 11000,
+                              imageId:
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
+                              ratings: {
+                                aggregatedRating: { rating: "4.4" },
+                              },
+                              description:
+                                "Spongy cottage cheese balls in sugar syrup.",
                             },
                           },
                         },
@@ -266,5 +355,7 @@ export const mockMenuData = {
     ],
   },
 };
+
+
 
 
