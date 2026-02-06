@@ -120,7 +120,8 @@ export const resList = [
   {
     id: "963258",
     name: "Cafe Coffee Day",
-    image: "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/4/2ccbba87-4bdf-401b-85f7-80ea34b2183e_587560.JPG",
+    image:
+      "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/4/2ccbba87-4bdf-401b-85f7-80ea34b2183e_587560.JPG",
     cuisines: ["Cafe", "Beverages", "Desserts"],
     costForTwo: "₹400 for two",
     rating: 4.3,
@@ -133,21 +134,25 @@ export const resList = [
   {
     id: "147258",
     name: "Havmor Ice Cream",
-    image: "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/24/40a63f8d-8fe1-4960-b29c-d1c8ae5fc375_1083750.JPG",
+    image:
+      "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/24/40a63f8d-8fe1-4960-b29c-d1c8ae5fc375_1083750.JPG",
     cuisines: ["Ice Cream", "Desserts"],
     costForTwo: "₹250 for two",
-    rating:3.2,
+    rating: 3.2,
     deliveryTime: "20-25 mins",
     locality: "Annapurna Road",
     area: "South Tukoganj",
     offer: "30% OFF UPTO ₹75",
     link: "https://www.swiggy.com/city/indore/havmor-ice-cream-annapurna-road-rest147258",
-  }
+  },
 ];
 
 // Local mock menu data to replace the real Swiggy API for learning purposes.
 // The shape matches the properties used in `RestaurantMenu.js`.
 
+// ===============================
+// 🍽️ MOCK MENU DATA (Restaurant page)
+// ===============================
 export const mockMenuData = {
   data: {
     cards: [
@@ -161,7 +166,7 @@ export const mockMenuData = {
               avgRatingString: "4.5",
               totalRatingsString: "1K+ ratings",
               costForTwoMessage: "₹300 for two",
-              cuisines: ["Indian", "Chinese"],
+              cuisines: ["Indian", "Chinese", "Italian"],
               areaName: "Mock Area",
               sla: { slaString: "30 mins" },
             },
@@ -194,7 +199,7 @@ export const mockMenuData = {
                                 aggregatedRating: { rating: "4.5" },
                               },
                               description:
-                                "Rich and creamy paneer butter masala.",
+                                "Rich and creamy paneer butter masala cooked in a tomato-based gravy. Perfectly balanced with butter, spices, and a hint of sweetness.",
                             },
                           },
                         },
@@ -210,7 +215,7 @@ export const mockMenuData = {
                                 aggregatedRating: { rating: "4.2" },
                               },
                               description:
-                                "Aromatic rice cooked with vegetables.",
+                                "Aromatic basmati rice cooked with fresh vegetables and fragrant spices. Served hot with layers of flavor in every bite.",
                             },
                           },
                         },
@@ -237,23 +242,7 @@ export const mockMenuData = {
                                 aggregatedRating: { rating: "4.3" },
                               },
                               description:
-                                "Smoky paneer cubes grilled to perfection.",
-                            },
-                          },
-                        },
-                        {
-                          card: {
-                            info: {
-                              id: "202",
-                              name: "Crispy Corn",
-                              price: 18000,
-                              imageId:
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/5e17e1b0-4ed7-4550-9281-ab328ec00de3",
-                              ratings: {
-                                aggregatedRating: { rating: "4.1" },
-                              },
-                              description:
-                                "Golden fried corn tossed with spices.",
+                                "Smoky paneer cubes marinated in spices and grilled to perfection. Crispy on the outside and soft, juicy on the inside.",
                             },
                           },
                         },
@@ -280,23 +269,7 @@ export const mockMenuData = {
                                 aggregatedRating: { rating: "4.6" },
                               },
                               description:
-                                "Slow cooked black lentils with butter.",
-                            },
-                          },
-                        },
-                        {
-                          card: {
-                            info: {
-                              id: "302",
-                              name: "Butter Naan",
-                              defaultPrice: 8000,
-                              imageId:
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
-                              ratings: {
-                                aggregatedRating: { rating: "4.7" },
-                              },
-                              description:
-                                "Soft naan brushed with butter.",
+                                "Slow-cooked black lentils simmered with butter and cream. A rich, comforting dish with deep, authentic flavors.",
                             },
                           },
                         },
@@ -305,41 +278,116 @@ export const mockMenuData = {
                   },
                 },
 
-                // 🍰 DESSERTS
+                // 🥤 BEVERAGES (NEW)
                 {
                   card: {
                     card: {
-                      title: "Desserts",
+                      title: "Beverages",
                       itemCards: [
                         {
                           card: {
                             info: {
-                              id: "401",
-                              name: "Gulab Jamun",
-                              price: 12000,
+                              id: "501",
+                              name: "Cold Coffee",
+                              price: 15000,
                               imageId:
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/4/21/5e17e1b0-4ed7-4550-9281-ab328ec00de3_0c709392-2a7b-4775-aa8b-4ca8fa93ba91.jpg",
+                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/5e17e1b0-4ed7-4550-9281-ab328ec00de3",
                               ratings: {
-                                aggregatedRating: { rating: "4.8" },
+                                aggregatedRating: { rating: "4.4" },
                               },
                               description:
-                                "Soft milk-solid balls soaked in syrup.",
+                                "Chilled coffee blended with milk and ice for a smooth taste. Refreshing, creamy, and perfect to beat the heat.",
                             },
                           },
                         },
                         {
                           card: {
                             info: {
-                              id: "402",
-                              name: "Rasgulla",
-                              price: 11000,
+                              id: "502",
+                              name: "Fresh Lime Soda",
+                              price: 9000,
+                              ratings: {
+                                aggregatedRating: { rating: "4.1" },
+                              },
+                              description:
+                                "Refreshing lime soda with a hint of mint and fizz. Light, cooling, and ideal for a quick refresh.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🍕 PIZZAS (NEW)
+                {
+                  card: {
+                    card: {
+                      title: "Pizzas",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "601",
+                              name: "Margherita Pizza",
+                              price: 24000,
                               imageId:
                                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/80260f6d3559b6cdd7e942b4dcc16ea8",
                               ratings: {
-                                aggregatedRating: { rating: "4.4" },
+                                aggregatedRating: { rating: "4.3" },
                               },
                               description:
-                                "Spongy cottage cheese balls in sugar syrup.",
+                                "Classic cheese pizza with tomato sauce.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🍔 COMBOS (NEW)
+                {
+                  card: {
+                    card: {
+                      title: "Combos",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "701",
+                              name: "Burger + Fries Combo",
+                              price: 28000,
+                              ratings: {
+                                aggregatedRating: { rating: "4.2" },
+                              },
+                              description:
+                                "Veg burger served with crispy fries.",
+                            },
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+
+                // 🥗 SALADS (NEW)
+                {
+                  card: {
+                    card: {
+                      title: "Salads",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "801",
+                              name: "Greek Salad",
+                              price: 19000,
+                              ratings: {
+                                aggregatedRating: { rating: "4.5" },
+                              },
+                              description:
+                                "Fresh veggies tossed with olive oil.",
                             },
                           },
                         },
@@ -355,7 +403,3 @@ export const mockMenuData = {
     ],
   },
 };
-
-
-
-

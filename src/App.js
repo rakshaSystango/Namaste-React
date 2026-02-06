@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDom from "react-dom/client";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,19 +9,33 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Grocery from "./components/Grocery";
+import UserContext from "./utils/UserContext";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
-  return (
-    <div className="min-h-screen bg-bg text-text">
-      <Header />
-      <div className="mx-auto w-full max-w-6xl px-4 pt-24 pb-10 sm:px-6 lg:px-8">
-        <Outlet />
-      </div>
+  const [userName, setUserName] = useState("");
 
-      <Footer />
-    </div>
+  useEffect(() => {
+    const data = {
+      name: "Raksha Jain",
+    };
+    setUserName(data.name);
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="min-h-screen bg-bg text-text">
+        {/* <UserContext.Provider value={{ loggedInUser: "John smith" }}> */}
+          <Header />
+        {/* </UserContext.Provider> */}
+        <div className="mx-auto w-full max-w-6xl px-4 pt-24 pb-10 sm:px-6 lg:px-8">
+          <Outlet />
+        </div>
+
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -34,7 +48,15 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
-      { path: "/grocery", element:<Suspense fallback={<h1>Loading....</h1>}> <Grocery /></Suspense> },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            {" "}
+            <Grocery />
+          </Suspense>
+        ),
+      },
     ],
     errorElement: <Error />,
   },
