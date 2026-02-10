@@ -1,9 +1,19 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ItemList = ({ items = [] }) => {
+
   console.log("items ====", items);
+
+  const dispatch = useDispatch();
+
+  const handleAddItems = (item)=>{
+    dispatch(addItem(item));
+  }
 
   return (
     <div className="space-y-6">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const { id, name, description, imageId, price, defaultPrice, ratings } =
           item?.card?.info || {};
 
@@ -11,7 +21,7 @@ const ItemList = ({ items = [] }) => {
 
         return (
           <div
-            key={id}
+            key={`${id}-${index}`}
             className="flex gap-10 border-b border-border pb-6 last:border-b-0"
           >
             {/* ================= Left Content ================= */}
@@ -49,7 +59,10 @@ const ItemList = ({ items = [] }) => {
                       : `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${imageId}`
                   }
                 />
-                <button className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white px-2.5 py-2 min-w-[100px] rounded-sm text-success border border-gray-400 cursor-pointer font-bold text-md">
+                <button
+                  onClick={() => handleAddItems(item)}
+                  className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white px-2.5 py-2 min-w-[100px] rounded-sm text-success border border-gray-400 cursor-pointer font-bold text-md"
+                >
                   ADD
                 </button>
               </div>
